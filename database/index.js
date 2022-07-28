@@ -17,10 +17,10 @@ db.connect((err) => {
 	console.log('Connected to DB!');
 });
 
-exports.getLeaderboard = () =>
+exports.getPlayers = () =>
 	new Promise((resolve, reject) => {
 		db.query(
-			'SELECT steam, score FROM rankme ORDER BY score DESC LIMIT 20',
+			'SELECT CONVERT(CAST(CONVERT(name USING latin1) AS BINARY) USING utf8mb4), steam, score FROM rankme ORDER BY score DESC LIMIT 20',
 			(err, res) => {
 				if (err) {
 					console.error(err);
@@ -30,16 +30,4 @@ exports.getLeaderboard = () =>
 				resolve(res);
 			}
 		);
-	});
-
-exports.getTableInfo = () =>
-	new Promise((resolve, reject) => {
-		db.query('SHOW COLUMNS FROM rankme', (err, res) => {
-			if (err) {
-				console.error(err);
-				reject(err);
-			}
-
-			resolve(res);
-		});
 	});
