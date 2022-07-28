@@ -1,0 +1,25 @@
+{
+	"name": "mrretakesleaderboard",
+	"version": "1.0.0",
+	"description": "Discord bot that retrieves the top 20 players of a current season ",
+	"main": "index.js",
+	"scripts": {
+		"start": "node index.js",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/MrRetakesLeaderboard/MrRetakesLeaderboard.git"
+	},
+	"author": "",
+	"license": "GPL-3.0",
+	"dependencies": {
+		"discord.js": "^14.0.3",
+		"dotenv": "^16.0.1",
+		"mysql": "^2.18.1",
+		"node-fetch": "^3.2.9",
+		"steamid": "^2.0.0",
+		"text-table": "^0.2.0",
+		"wcwidth": "^1.0.1"
+	}
+}
