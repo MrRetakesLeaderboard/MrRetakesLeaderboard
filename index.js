@@ -99,7 +99,10 @@ function sanitizeUsername(name) {
 		encodedName = encodedName.replace('%F3%A0%81%B3%E2%81%A7%E2%81%A7', '');
 	}
 
-	return decodeURIComponent(encodedName);
+	return decodeURIComponent(encodedName).replace(
+		/\p{Emoji_Presentation}/gu,
+		''
+	);
 }
 
 module.exports = client;
